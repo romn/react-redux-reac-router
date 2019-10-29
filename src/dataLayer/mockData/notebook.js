@@ -2,7 +2,10 @@ const commonNamePart = 'notebook';
 const list = [];
 
 for (let i = 0; i < 5; i++) {
-    list.push({ name: `${commonNamePart} ${i}` });
+    list.push({
+        id: `${i}`,
+        name: `${commonNamePart} ${i}`
+    });
 }
 
 export default {

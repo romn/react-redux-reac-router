@@ -1,4 +1,4 @@
-import initialState from "../models/label";
+import initialState from "../initialState/label";
 
 export default function (state = initialState, action) {
     if (action.type === 'INCREMENT') {

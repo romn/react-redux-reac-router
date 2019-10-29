@@ -1,4 +1,4 @@
-import initialState from "../models/note";
+import initialState from "../initialState/note";
 
 export default function (state = initialState, action) {
     if (action.type === 'INCREMENT') {
