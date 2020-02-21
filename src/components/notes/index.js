@@ -1,10 +1,17 @@
-import { connect } from 'react-redux'
-import Component from './component'
+import React from "react";
+import './index.css';
+import {Link} from "@reach/router";
+import {useSelector} from "react-redux";
 
-const mapStateToProps = state => ({
-    note: state.note
-});
+export default function ({ labelId, notebookId }) {
+    const note = useSelector(state => state.note);
+    let basePath = (labelId ? `/labels/${labelId}` : `/notebooks/${notebookId}`);
 
-export default connect(
-    mapStateToProps
-)(Component)
+    const noteNames = note.list.map((note, i) =>
+        <Link to={`${basePath}/notes/${i}`} key={i}>{note.name}</Link>
+    );
+
+    return (
+        <div className="component_noteList">{noteNames}</div>
+    );
+}

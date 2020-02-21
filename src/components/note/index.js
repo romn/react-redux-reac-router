@@ -1,10 +1,11 @@
-import { connect } from 'react-redux'
-import Component from './component'
+import React from "react";
+import './index.css';
+import {useSelector} from "react-redux";
 
-const mapStateToProps = state => ({
-    note: state.note
-});
-
-export default connect(
-    mapStateToProps
-)(Component)
+export default function ({ noteId }) {
+    const note = useSelector(state => state.note);
+    const content = note.list.filter(note => note.id === noteId)[0].content;
+    return (
+        <div className="component_note">{content}</div>
+    );
+};
