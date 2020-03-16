@@ -2,14 +2,14 @@ import React from "react";
 import './index.css';
 import {Link} from "@reach/router";
 import {useSelector} from "react-redux";
+import {selectLabels} from "../../dataLayer/selectors/label";
 
 export default function () {
-    const label = useSelector(state => state.label);
-    const labelNames = label.list.map((note, i) =>
-        <Link to={`/labels/${i}`} key={i}>{note.name}</Link>
-    );
+    const labels = useSelector(selectLabels);
 
     return (
-        <div className="component_labelList">{labelNames}</div>
+        <div className="component_labelList">{labels.map((lb) =>
+            <Link to={`/labels/${lb.id}`} key={lb.id}>{lb.name}</Link>)}
+        </div>
     );
 }

@@ -1,36 +1,41 @@
 /* @todo fix transition */
 
-.layout_aside {
+.component_aside {
+    height: 100%;
     background: gray;
 }
-.layout_aside-navigation {
+.component_aside-navigation {
     height: 25px;
     line-height: 25px;
+    padding-left: var(--std-hz-margin);
+    padding-right: var(--std-hz-margin);
 }
-.layout_aside-viewport {
+.component_aside-viewport {
     width: 100%;
     height: calc(100% - 25px);
     overflow: hidden;
 }
 
-.layout_aside-ribbon {
+.component_aside-ribbon {
     display: flex;
     height: 100%;
     width: 300%;
     transition: transform 0.3s;
 }
 
-.layout_aside-ribbon > * {
+.component_aside-ribbon > * {
     height: 100%;
     width: 33.33%;
+    padding-left: var(--std-hz-margin);
+    padding-right: var(--std-hz-margin);
 }
 
-.layout_aside-ribbon--labels {
+.component_aside-ribbon--notebooks {
     transform: translateX(0);
 }
-.layout_aside-ribbon--notebooks {
+.component_aside-ribbon--labels {
     transform: translateX(-33.33%);
 }
-.layout_aside-ribbon--notes {
+.component_aside-ribbon--notes {
     transform: translateX(-66.66%);
 }

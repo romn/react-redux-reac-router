@@ -2,14 +2,14 @@ import React from "react";
 import './index.css';
 import {Link} from "@reach/router";
 import {useSelector} from "react-redux";
+import {selectNotebooks} from "../../dataLayer/selectors/notebook";
 
 export default function () {
-    const notebook = useSelector(state => state.notebook);
-    const notebookNames = notebook.list.map((note, i) =>
-        <Link to={`/notebooks/${i}`} key={i}>{note.name}</Link>
-    );
+    const notebooks = useSelector(selectNotebooks);
 
     return (
-        <div className="component_notebookList">{notebookNames}</div>
+        <div className="component_notebookList">{notebooks.map((nb) =>
+            <Link to={`/notebooks/${nb.id}`} key={nb.id}>{nb.name}</Link>)}
+        </div>
     );
 }
