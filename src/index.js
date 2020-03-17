@@ -7,10 +7,8 @@ import { Provider } from 'react-redux'
 import Layout from './components/layout';
 import * as serviceWorker from './serviceWorker';
 import store from './dataLayer';
-import hookUpFirebase from './services/firebase';
+import './services/firebase';
 import {Router} from "@reach/router";
-
-hookUpFirebase();
 
 ReactDOM.render(
     <Provider store={store}>
