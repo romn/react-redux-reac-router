@@ -1,5 +1,7 @@
-import {routeChange} from '../dataLayer/actions/route';
-import store from '../dataLayer';
+import {routeChange} from '../actions/route';
+import store from '../';
+import {useLocation} from "@reach/router";
+import { useEffect } from 'react';
 
 // @todo describe routes
 // @todo make sure both cases with and without tailing slashes work
@@ -50,7 +52,7 @@ function getRouteFor (location) {
     return route;
 }
 
-export default function handleLocationChange (location) {
+function handleLocationChange (location) {
     const route = getRouteFor(location);
     if (route) {
         store.dispatch(routeChange(route));
@@ -61,3 +63,9 @@ export default function handleLocationChange (location) {
     // @todo parse routes, don't forget to handle pathname for IE
     // @todo provide action to store location in state
 }
+
+export default function useRoute () {
+    const location = useLocation();
+    useEffect(() => handleLocationChange(location));
+}
+

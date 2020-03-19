@@ -1,8 +1,6 @@
 import { configureStore } from 'redux-starter-kit'
 import rootReducer from './reducers'
 
-const store = configureStore({
+export default configureStore({
     reducer: rootReducer
 });
-
-export default store

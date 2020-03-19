@@ -1,17 +1,15 @@
-import React, {useEffect} from "react";
+import React from "react";
 import './index.css';
 import Aside from '../aside';
-import {useLocation} from "@reach/router";
 import Note from '../note';
 import Status from '../status';
 import {useSelector} from "react-redux";
 import {selectIsSignedIn} from "../../dataLayer/selectors/auth";
-import handleLocationChange from "../../services/route";
+import useRoute from "../../dataLayer/hooks/route";
 
 export default () => {
     const isSignedIn = useSelector(selectIsSignedIn);
-    const location = useLocation();
-    useEffect(() => handleLocationChange(location));
+    useRoute();
 
     return (
 
